@@ -1,27 +1,27 @@
-# Configuration
+# 配置
 
-All these settings can be found at `Edit > Project Settings > Udon Sharp`
+所有设置都可以在 `Edit > Project Settings > Udon Sharp` 找到
 
-![Udon Sharp Settings](/udonsharp.docs.vrchat.com/images/udon-sharp-settings.png)
+![Udon Sharp 设置](/udonsharp.docs.vrchat.com/images/udon-sharp-settings.png)
 
 # Udon Sharp
 
 ### Auto compile on modify
-Having this enabled will auto compile scripts when a file is modified and saved.
+开启这个选项后脚本将在被修改并保存后自动编译。
 
 ### Compile all script
-Compiles all scripts when ever changes are detected to a U# script.
+编译包括没有检测到任何修改的 U# 脚本在内的所有脚本。
 
 ### Compile on focus
-Will only compile when the editor gets focused and changes have been made to a script.
+只编译在编辑器获得了焦点并且进行了更改的脚本。
 
 ### Script template override
-You can define your own custom template to be used when creating U# scripts.
-This can be done by dragging a script into the `Script template override` field and that will now be used when you create a new U# script.
+您可以定义自己的自定义模板，用于创建 U# 脚本时使用。
+这可以通过将脚本拖放到 `Script template override` 字段中来完成，这样在创建新的 U# 脚本时将使用该模板。
 
-`<TemplateClassName>` can be used to set the class name based on the file name you give.
+`<TemplateClassName>` 可以根据您给定的文件名来设置类名。
 
-**Default Template**
+**默认模板**
 ```cs
 using UdonSharp;
 using UnityEngine;
@@ -40,12 +40,12 @@ public class <TemplateClassName> : UdonSharpBehaviour
 # Debugging
 
 ### Debug build
-Enables or disabled `Inline Code` and `Listen for client exceptions`
+启用或禁用 `Inline Code` 和 `Listen for client exceptions`
 
 ### Inline Code
-Includes the C# inline code in the generated assembly code.
+在生成的程序集代码中包含 C# 内联代码。
 
 ### Listen for client exceptions
-This will listen for exceptions from the output log the VRChat client makes, then try to match it up against scripts in the project.
+这将监听 VRChat 客户端输出日志中的异常，然后尝试将其与项目中的脚本进行匹配。
 
-[Read more here on how to set it up](https://github.com/vrchat-community/UdonSharp/wiki/class-exposure-tree)
+[在这里获取更多设置帮助](https://github.com/vrchat-community/UdonSharp/wiki/class-exposure-tree)
