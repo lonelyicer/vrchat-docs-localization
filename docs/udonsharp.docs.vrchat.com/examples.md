@@ -1,16 +1,16 @@
-# Examples
+# 示例
 
-* [Spinning Cube](#spinning-cube)
-* [Player Settings](#player-settings)
-* [Interact](#interact)
-* [Teleport Player](#teleport-player)
-* [Get Players](#get-players)
-* [UdonSharp Script Example](#udonsharp-script-example)
+* [旋转方块](#旋转方块)
+* [玩家设置](#玩家设置)
+* [交互](#交互)
+* [传送玩家](#传送玩家)
+* [获取玩家](#获取玩家)
+* [UdonSharp 脚本示例](#udonsharp-脚本示例)
 
 
 ---
 
-### Spinning Cube
+### 旋转方块
 ```cs
 using UnityEngine;
 using UdonSharp;
@@ -24,7 +24,7 @@ public class RotatingCubeBehaviour : UdonSharpBehaviour
 }
 ```
 
-### Player Settings
+### 玩家设置
 ```cs
 using UnityEngine;
 using UdonSharp;
@@ -50,9 +50,9 @@ public class PlayerModSettings : UdonSharpBehaviour
     }
 }
 ```
-A more advanced example is located in the [examples folder of UdonSharp](https://github.com/Merlin-san/UdonSharp/blob/master/Assets/UdonSharp/Examples/Utilities/PlayerModSetter.cs).
+更高级的示例位于 [UdonSharp的示例文件夹](https://github.com/Merlin-san/UdonSharp/blob/master/Assets/UdonSharp/Examples/Utilities/PlayerModSetter.cs) 中。
 
-### Interact
+### 交互
 ```cs
 using UnityEngine;
 using UdonSharp;
@@ -66,7 +66,7 @@ public class ClickMe: UdonSharpBehaviour
 }
 ```
 
-### Teleport Player
+### 传送玩家
 ```cs
 using UdonSharp;
 using UnityEngine;
@@ -86,8 +86,8 @@ public class TeleportPlayer : UdonSharpBehaviour
 }
 ```
 
-### Get Players
-Example on how to get all players in the instance.
+### 获取玩家
+演示如何获取实例中的所有玩家。
 ```cs
 using UdonSharp;
 using UnityEngine;
@@ -95,7 +95,7 @@ using VRC.SDKBase;
 
 public class GetPlayersExample : UdonSharpBehaviour
 {
-    // World capacity is 10, so we create a new array with length of 20 (Hard cap)
+    // 世界的玩家上限是 10, 所以我们创建一个上限为 20 数组
     VRCPlayerApi[] players = new VRCPlayerApi[20];
 
     void Start()
@@ -110,8 +110,8 @@ public class GetPlayersExample : UdonSharpBehaviour
 }
 ```
 
-### UdonSharp Script Example
-This is an example class for UdonSharp and how it communicates with other UdonSharp behaviours.
+### UdonSharp 示例脚本
+这是一个 UdonSharp 的示例类，演示它如何与其他 UdonSharp Behaviour 进行通信。
 ```cs
 using UdonSharp;
 using UnityEngine;
@@ -122,38 +122,38 @@ namespace UdonSharpExample
 {
     public class Example : UdonSharpBehaviour
     {
-        // UdonSharpBehaviour Class (Affects the Inspector)
+        // UdonSharpBehaviour 类 (影响 Inspector)
         [SerializeField] AnotherExample anotherExample;
 
         void Start()
         {
-            // Same as: anotherExample.GetProgramVariable("publicBoolean");
+            // 等同于 anotherExample.GetProgramVariable("publicBoolean");
             if(anotherExample.publicBoolean)
             {
-                // Same as: anotherExample.SendCustomEvent("RunMethod");
+                // 等同于 anotherExample.SendCustomEvent("RunMethod");
                 anotherExample.RunMethod();
             }
         }
 
-        // VRChat Event
+        // VRChat 事件
         public override void Interact()
         {
-            // Same as: SendCustomEvent("DoStuff");
+            // 等同于 SendCustomEvent("DoStuff");
             DoStuff();
         }
 
         public void DoStuff()
         {
-            // This will be sent to all clients and run locally on each one (including the one sending)
+            // 这将发送给所有客户端，并在每个客户端上本地运行（包括发送者）
             SendCustomNetworkEvent(NetworkEventTarget.All, "NetworkEventStuff");
         }
 
         public void NetworkEventStuff()
         {
-            // Same as: anotherExample.SetProgramVariable("publicBoolean", false);
+            // 等同于 anotherExample.SetProgramVariable("publicBoolean", false);
             anotherExample.publicBoolean = false;
 
-            // Same as: anotherExample.SendCustomEvent("RunMethod");
+            // 等同于 anotherExample.SendCustomEvent("RunMethod");
             anotherExample.RunMethod();
 
             anotherExample.SendCustomNetworkEvent(NetworkEventTarget.Owner, "DoOwnerStuff");
