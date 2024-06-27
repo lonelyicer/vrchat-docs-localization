@@ -36,7 +36,7 @@ UdonSharp 是一种将 C# 编译为 Udon 程序集的编译器。UdonSharp 目�
 ## 影响 U# 的 Udon bugs
 - 在结构体上调用变异方法不会修改该结构体（例如，对 Vector3 调用 Normalize() 方法）。 https://vrchat.canny.io/vrchat-udon-closed-alpha-bugs/p/raysetorigin-and-raysetdirection-not-working
 
-## 配置
+## 开始
 
 ### 依赖
 - Unity 2019.4.31f1
